@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wyse Control</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="icon" type="image/png" href="/icons/icon-192.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#121212">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Wyse Control</h1>
+            <p>VPN Gateway & TV Routing</p>
+        </div>
+
+        <div class="status-grid">
+
+            <div class="card status-card">
+                <h3>Routing</h3>
+                <div id="routingMode"></div>
+            </div>
+
+            <div class="card status-card">
+                <h3>VPN</h3>
+                <div id="vpnStatus"></div>
+            </div>
+
+            <div class="card status-card">
+                <h3>Public IP</h3>
+                <div id="publicIp"></div>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Controls</h2>
+
+            <div class="button-group">
+
+                <button class="btn btn-primary"
+                        onclick="enableVpn()">
+                    Route via VPN
+                </button>
+
+                <button class="btn btn-warning"
+                        onclick="disableVpn()">
+                    Route via WAN
+                </button>
+
+                <button class="btn btn-danger"
+                        onclick="rebootWyse()">
+                    Reboot Wyse
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Traffic</h2>
+
+            <div class="info-row">
+                <span>Today</span>
+                <span id="todayTraffic"></span>
+            </div>
+
+            <div class="info-row">
+                <span>Month</span>
+                <span id="monthTraffic"></span>
+            </div>
+
+            <div class="info-row">
+                <span>Total</span>
+                <span id="totalTraffic"></span>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>System</h2>
+
+            <div class="info-row">
+                <span>CPU Usage</span>
+                <span id="cpu"></span>
+            </div>
+
+            <div class="info-row">
+                <span>Memory Usage</span>
+                <span id="memory"></span>
+            </div>
+
+            <div class="info-row">
+                <span>Uptime</span>
+                <span id="uptime"></span>
+            </div>
+
+            <div class="info-row">
+                <span>Last Updated</span>
+                <span id="lastUpdated"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="modalOverlay"
+        class="modal-overlay hidden">
+
+        <div class="modal">
+
+            <div class="spinner"></div>
+
+            <h3 id="modalTitle">
+                Processing
+            </h3>
+
+            <p id="modalMessage">
+                Please wait...
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
